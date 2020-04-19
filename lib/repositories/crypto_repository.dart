@@ -14,10 +14,10 @@ class CryptoRepository extends BaseCryptoRepository {
       : _httpClient = httpClient ?? http.Client();
 
   @override
-  Future<List<Coin>> getTopCoint({int page}) async {
+  Future<List<Coin>> getTopCoins({int page}) async {
     List<Coin> coins = [];
     String requestUrl =
-        '$_baseUrl/data/top/totalvolfull?limit=$_perPage&USD=&page=$page';
+        '$_baseUrl/data/top/totalvolfull?limit=$_perPage&tsym=USD&page=$page';
     try {
       final response = await _httpClient.get(requestUrl);
       if (response.statusCode == 200) {
